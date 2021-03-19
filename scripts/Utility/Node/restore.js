@@ -59,12 +59,12 @@ module.exports ={
 
         if (blockchain == 'ethr:rinkeby:1'){
           rinkeby_warn = 'You are restoring to the Rinkeby blockchain.'
-          mv_rnk = 'sudo docker cp /root/OTawsbackup/erc725_identity.json otnode:/ot-node/data/rinkeby_identity.json'
+          mv_rnk = 'sudo docker cp /root/OTawsbackup/rinkeby_identity.json otnode:/ot-node/data/rinkeby_identity.json'
         }
 
         if (blockchain == 'ethr:rinkeby:2'){
-          rinkeby_warn = 'You are restoring to the Rinkeby blockchain.'
-          mv_rnk = 'sudo docker cp /root/OTawsbackup/erc725_identity.json otnode:/ot-node/data/rinkeby_identity.json'
+          rinkeby2_warn = 'You are restoring a 2nd profile to the Rinkeby blockchain.'
+          mv_rnk2 = 'sudo docker cp /root/OTawsbackup/rinkeby_2_erc725_identity.json otnode:/ot-node/data/rinkeby_2_erc725_identity.json'
         }
       }
 
@@ -94,7 +94,7 @@ module.exports ={
       if(rinkeby_warn){
         console.log('\x1b[33m',rinkeby_warn);
       }
-      if(kovan_warn){
+      if(rinkeby2_warn){
         console.log('\x1b[33m',kovan_warn);
       }
       console.log('\x1b[33m',"Restore cannot be stopped once setting are confirmed.");

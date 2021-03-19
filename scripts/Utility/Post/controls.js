@@ -54,20 +54,29 @@ module.exports ={
 
   credits: async function credits(){
       console.log('\x1b[35m',"Presenting node credentials...",'\n');
-      //var rinkeby_id = 'echo $(sudo docker exec otnode cat /ot-node/data/rinkeby_identity.json)'
+      var rinkeby_id = 'echo $(sudo docker exec otnode cat /ot-node/data/rinkeby_identity.json)'
+      var rinkeby_id2 = 'echo $(sudo docker exec otnode cat /ot-node/data/rinkeby_2_erc725_identity.json)'
       var erc725_id = 'echo $(sudo docker exec otnode cat /ot-node/data/erc725_identity.json)'
       var starfleet_id = 'echo $(sudo docker exec otnode cat /ot-node/data/sfc_erc725_identity.json)'
       var xDai_id = 'echo $(sudo docker exec otnode cat /ot-node/data/xdai_erc725_identity.json)'
       var log_identity = 'echo $(sudo docker exec otnode cat /ot-node/data/identity.json)'
       var log_houstonpw = 'echo $(sudo docker exec otnode cat /ot-node/data/houston.txt)'
 
-      // exec(rinkeby_id, (error, success, stderr) => {
-      //   if (stderr){
-      // 
-      //   }else{
-      //     console.log('\x1b[35m',"Rinkeby Identity: ",'\x1b[32m', success);
-      //   }
-      // });
+      exec(rinkeby_id, (error, success, stderr) => {
+        if (stderr){
+
+        }else{
+          console.log('\x1b[35m',"Rinkeby Identity: ",'\x1b[32m', success);
+        }
+      });
+
+      exec(rinkeby_id2, (error, success, stderr) => {
+        if (stderr){
+
+        }else{
+          console.log('\x1b[35m',"Rinkeby Identity 2: ",'\x1b[32m', success);
+        }
+      });
 
       exec(erc725_id, (error, success, stderr) => {
         if (stderr){
@@ -98,7 +107,7 @@ module.exports ={
           console.log('\x1b[31m',"Failed to return node identity: " + error);
           callback('fail');
         }else{
-          console.log('\x1b[35m',"Node Identity: ",'\x1b[32m', success);
+          console.log('\x1b[35m',"Node Identity Key: ",'\x1b[32m', success);
         }
       });
 
