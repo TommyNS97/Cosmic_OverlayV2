@@ -9,6 +9,7 @@ const node_configure = require('./configurations/configure.js');
 const machine = require('./scripts/Utility/Node/machine.js');
 const restore = require('./scripts/Utility/Node/restore.js');
 const controls_util = require('./scripts/Utility/Post/controls.js');
+const api = require('./scripts/Utility/Api/scripts.js');
 const logs_util = require('./scripts/Utility/Post/logs.js');
 const scripts_util = require('./scripts/Utility/Post/scripts.js');
 const aws = require('./scripts/AWS/aws.js');
@@ -31,6 +32,8 @@ try{
       const nodestat = await prechecks.nodestatus();
       if(nodestat == 'online'){
         var nodestatus = "\x1b[32mOnline";
+
+        await api.stakes();
       }else{
         var nodestatus = "\x1b[31mOffline";
       }
@@ -40,7 +43,7 @@ try{
       var nodestatus = "\x1b[31mOffline";
     }
 
-    console.log('\x1b[35m',"----------------------[Node Status:"+nodestatus+"\x1b[35m]----------------------");
+    console.log('\x1b[35m',"--------------------------[Node Status:"+nodestatus+"\x1b[35m]--------------------------");
 		console.log('\x1b[35m',"[1] - Install Menu");
 		console.log('\x1b[35m',"[2] - Back Up Menu");
 		console.log('\x1b[35m',"[3] - Scripts Menu");

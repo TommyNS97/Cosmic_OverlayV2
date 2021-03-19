@@ -13,10 +13,6 @@ module.exports ={
       var nodecfg = await exec(nodecfg);
       console.log('\x1b[32m',nodecfg.stdout);
 
-      const implementations = node_config.blockchain.implementations;
-      var chain_count  = Object.keys(implementations).length;
-      var chain_count = Number(chain_count);
-
       if(overlay_config.environment == 'development'){
         var install = 'sudo docker run --log-driver json-file --log-opt max-size=1g --name=otnode --hostname='+node_config.network.hostname+' -p 8900:8900 -p 5278:5278 -p 3000:3000 -e LOGS_LEVEL_DEBUG=1 -e SEND_LOGS=1 -v ~/certs/:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode-test:feature_blockchain-service'
       }else if(overlay_config.environment == 'testnet'){
@@ -28,6 +24,10 @@ module.exports ={
       console.log('\x1b[33m',"You are about to install your OriginTrail node onto the "+overlay_config.environment+" environment.");
       console.log('\x1b[33m',"Please confirm the above information before confirming the install.");
 
+      const implementations = node_config.blockchain.implementations;
+      var chain_count  = Object.keys(implementations).length;
+      var chain_count = Number(chain_count);
+      
       for(var i = 0; i < chain_count; i++) {
         var obj = Object.entries(implementations)[i];
         var obj = obj[1];
