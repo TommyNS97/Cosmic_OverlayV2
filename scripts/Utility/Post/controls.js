@@ -54,29 +54,20 @@ module.exports ={
 
   credits: async function credits(){
       console.log('\x1b[35m',"Presenting node credentials...",'\n');
-      var kovan_id = 'echo $(sudo docker exec otnode cat /ot-node/data/kovan_identity.json)'
-      var rinkeby_id = 'echo $(sudo docker exec otnode cat /ot-node/data/rinkeby_identity.json)'
+      //var rinkeby_id = 'echo $(sudo docker exec otnode cat /ot-node/data/rinkeby_identity.json)'
       var erc725_id = 'echo $(sudo docker exec otnode cat /ot-node/data/erc725_identity.json)'
-      var starfleet_id = 'echo $(sudo docker exec otnode cat /ot-node/data/starfleet_identity.json)'
-      var xDai_id = 'echo $(sudo docker exec otnode cat /ot-node/data/xDai_identity.json)'
+      var starfleet_id = 'echo $(sudo docker exec otnode cat /ot-node/data/sfc_erc725_identity.json)'
+      var xDai_id = 'echo $(sudo docker exec otnode cat /ot-node/data/xdai_erc725_identity.json)'
       var log_identity = 'echo $(sudo docker exec otnode cat /ot-node/data/identity.json)'
       var log_houstonpw = 'echo $(sudo docker exec otnode cat /ot-node/data/houston.txt)'
 
-      exec(kovan_id, (error, success, stderr) => {
-        if (stderr){
-
-        }else{
-          console.log('\x1b[35m',"Kovan Identity: ",'\x1b[32m', success);
-        }
-      });
-
-      exec(rinkeby_id, (error, success, stderr) => {
-        if (stderr){
-
-        }else{
-          console.log('\x1b[35m',"Rinkeby Identity: ",'\x1b[32m', success);
-        }
-      });
+      // exec(rinkeby_id, (error, success, stderr) => {
+      //   if (stderr){
+      // 
+      //   }else{
+      //     console.log('\x1b[35m',"Rinkeby Identity: ",'\x1b[32m', success);
+      //   }
+      // });
 
       exec(erc725_id, (error, success, stderr) => {
         if (stderr){

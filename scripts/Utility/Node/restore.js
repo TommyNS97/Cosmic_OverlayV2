@@ -36,30 +36,35 @@ module.exports ={
         var obj = Object.entries(implementations)[i];
         var obj = obj[1];
         var blockchain = obj.network_id
-        
-        if (blockchain == 'ethereum'){
+
+        if (blockchain == 'ethr:mainnet'){
           ethereum_warn = 'You are restoring to the Ethereum blockchain.'
           mv_eth = 'sudo docker cp /root/OTawsbackup/erc725_identity.json otnode:/ot-node/data/erc725_identity.json'
         }
 
-        if (blockchain == 'starfleet'){
+        if (blockchain == 'sfc:mainnet'){
           starfleet_warn = 'You are restoring to the Starfleet blockchain.'
-          mv_sfc = 'sudo docker cp /root/OTawsbackup/starfleet_identity.json otnode:/ot-node/data/starfleet_identity.json'
+          mv_sfc = 'sudo docker cp /root/OTawsbackup/sfc_erc725_identity.json otnode:/ot-node/data/starfleet_identity.json'
         }
 
-        if (blockchain == 'xDai'){
+        if (blockchain == 'xdai:mainnet'){
           xDai_warn = 'You are restoring to the xDai blockchain.'
-          mv_xDai = 'sudo docker cp /root/OTawsbackup/xDai_identity.json otnode:/ot-node/data/xDai_identity.json'
+          mv_xDai = 'sudo docker cp /root/OTawsbackup/xdai_erc725_identity.json otnode:/ot-node/data/xdai_erc725_identity.json'
         }
 
-        if (blockchain == 'rinkeby'){
+        if (blockchain == 'xdai:testnet'){
+          xDai_warn = 'You are restoring to the xDai blockchain.'
+          mv_xDai = 'sudo docker cp /root/OTawsbackup/xdai_erc725_identity.json otnode:/ot-node/data/xdai_erc725_identity.json'
+        }
+
+        if (blockchain == 'ethr:rinkeby:1'){
           rinkeby_warn = 'You are restoring to the Rinkeby blockchain.'
-          mv_rnk = 'sudo docker cp /root/OTawsbackup/rinkeby_identity.json otnode:/ot-node/data/rinkeby_identity.json'
+          mv_rnk = 'sudo docker cp /root/OTawsbackup/erc725_identity.json otnode:/ot-node/data/rinkeby_identity.json'
         }
 
-        if (blockchain == 'kovan'){
-          kovan_warn = 'You are restoring to the Kovan blockchain.'
-          mv_kov = 'sudo docker cp /root/OTawsbackup/kovan_identity.json otnode:/ot-node/data/kovan_identity.json'
+        if (blockchain == 'ethr:rinkeby:2'){
+          rinkeby_warn = 'You are restoring to the Rinkeby blockchain.'
+          mv_rnk = 'sudo docker cp /root/OTawsbackup/erc725_identity.json otnode:/ot-node/data/rinkeby_identity.json'
         }
       }
 
@@ -67,13 +72,11 @@ module.exports ={
         var restore =  "sudo /root/OTRestore/restore.sh --environment=development --backupDir=/root/OTawsbackup"
         var image =  'sudo docker create --log-driver json-file --log-opt max-size=1g --name=otnode --hostname='+node_config.network.hostname+' -p 8900:8900 -p 5278:5278 -p 3000:3000 -e LOGS_LEVEL_DEBUG=1 -e SEND_LOGS=1 -v ~/certs/:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode-test:feature_blockchain-service'
       }else if(overlay_config.environment == 'testnet'){
-        //console.log('testnet');
-        //var restore =  "sudo /root/OTRestore/restore.sh --environment=testnet --backupDir=/root/OTawsbackup"
-        //var image =  'sudo docker create --log-driver json-file --log-opt max-size=1g --name=otnode --hostname='+node_config.network.hostname+' -p 8900:8900 -p 5278:5278 -p 3000:3000 -e LOGS_LEVEL_DEBUG=1 -e SEND_LOGS=1 -v ~/certs/:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc '+kovan+rinkeby+'quay.io/origintrail/otnode-test:feature_blockchain-service'
-      }else{
-        //console.log('mainnet');
-        //var restore =  "sudo /root/OTRestore/restore.sh --environment=mainnet --backupDir=/root/OTawsbackup"
-        //var image =  'sudo docker create --log-driver json-file --log-opt max-size=1g --name=otnode --hostname='+node_config.network.hostname+' -p 8900:8900 -p 5278:5278 -p 3000:3000 -e LOGS_LEVEL_DEBUG=1 -e SEND_LOGS=1 -v ~/certs/:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc '+ethereum+starfleet+xDai+'quay.io/origintrail/otnode-test:feature_blockchain-service'
+        var restore =  "sudo /root/OTRestore/restore.sh --backupDir=/root/OTawsbackup"
+        var image =  'sudo docker create --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode:release_testnet'
+      }else if(overlay_config.environment == 'mainnet'){
+        var restore =  "sudo /root/OTRestore/restore.sh --backupDir=/root/OTawsbackup"
+        var image =  'sudo docker create --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode:release_mainnet'
       }
 
       console.log('\x1b[33m',"#################################### WARNING ################################");

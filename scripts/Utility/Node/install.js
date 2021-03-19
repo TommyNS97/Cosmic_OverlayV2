@@ -17,72 +17,26 @@ module.exports ={
       var chain_count  = Object.keys(implementations).length;
       var chain_count = Number(chain_count);
 
-      ethereum_warn = ''
-      mv_eth = ''
+      if(overlay_config.environment == 'development'){
+        var install = 'sudo docker run --log-driver json-file --log-opt max-size=1g --name=otnode --hostname='+node_config.network.hostname+' -p 8900:8900 -p 5278:5278 -p 3000:3000 -e LOGS_LEVEL_DEBUG=1 -e SEND_LOGS=1 -v ~/certs/:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode-test:feature_blockchain-service'
+      }else if(overlay_config.environment == 'testnet'){
+        var install = 'sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode:release_testnet'
+      }else if(overlay_config.environment == 'mainnet'){
+        var install = 'sudo docker run -i --log-driver json-file --log-opt max-size=1g --name=otnode -p 8900:8900 -p 5278:5278 -p 3000:3000 -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode:release_mainnet'
+      }
 
-      starfleet_warn = ''
-      mv_sfc = ''
-
-      xDai_warn = ''
-      mv_xDai = ''
-
-      rinkeby_warn = ''
-      mv_rnk = ''
-
-      kovan_warn = ''
-      mv_kov = ''
+      console.log('\x1b[33m',"You are about to install your OriginTrail node onto the "+overlay_config.environment+" environment.");
+      console.log('\x1b[33m',"Please confirm the above information before confirming the install.");
 
       for(var i = 0; i < chain_count; i++) {
         var obj = Object.entries(implementations)[i];
         var obj = obj[1];
         var blockchain = obj.network_id
 
-        if (blockchain == 'ethereum'){
-          ethereum_warn = 'You are restoring to the Ethereum blockchain.'
-        }
+        console.log('You are installing to '+blockchain+'.')
 
-        if (blockchain == 'starfleet'){
-          starfleet_warn = 'You are restoring to the Starfleet blockchain.'
-        }
-
-        if (blockchain == 'xDai'){
-          xDai_warn = 'You are restoring to the xDai blockchain.'
-        }
-
-        if (blockchain == 'rinkeby'){
-          rinkeby_warn = 'You are restoring to the Rinkeby blockchain.'
-        }
-
-        if (blockchain == 'kovan'){
-          kovan_warn = 'You are restoring to the Kovan blockchain.'
-        }
       }
 
-      if(overlay_config.environment == 'development'){
-        var install = 'sudo docker run --log-driver json-file --log-opt max-size=1g --name=otnode --hostname='+node_config.network.hostname+' -p 8900:8900 -p 5278:5278 -p 3000:3000 -e LOGS_LEVEL_DEBUG=1 -e SEND_LOGS=1 -v ~/certs/:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc quay.io/origintrail/otnode-test:feature_blockchain-service'
-      }else if(overlay_config.environment == 'testnet'){
-        //var install = 'sudo docker run --log-driver json-file --log-opt max-size=1g --name=otnode --hostname='+node_config.network.hostname+' -p 8900:8900 -p 5278:5278 -p 3000:3000 -e LOGS_LEVEL_DEBUG=1 -e SEND_LOGS=1 -v ~/certs/:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc '+kovan+rinkeby+'quay.io/origintrail/otnode-test:feature_blockchain-service'
-      }else{
-        //var install = 'sudo docker run --log-driver json-file --log-opt max-size=1g --name=otnode --hostname='+node_config.network.hostname+' -p 8900:8900 -p 5278:5278 -p 3000:3000 -e LOGS_LEVEL_DEBUG=1 -e SEND_LOGS=1 -v ~/certs/:/ot-node/certs/ -v ~/.origintrail_noderc:/ot-node/.origintrail_noderc '+ethereum+starfleet+xDai+'quay.io/origintrail/otnode-test:feature_blockchain-service'
-      }
-
-      console.log('\x1b[33m',"You are about to install your OriginTrail node onto the "+overlay_config.environment+" environment.");
-      console.log('\x1b[33m',"Please confirm the above information before confirming the install.");
-      if(ethereum_warn){
-        console.log('\x1b[33m',ethereum_warn);
-      }
-      if(starfleet_warn){
-        console.log('\x1b[33m',starfleet_warn);
-      }
-      if(xDai_warn){
-        console.log('\x1b[33m',xDai_warn);
-      }
-      if(rinkeby_warn){
-        console.log('\x1b[33m',rinkeby_warn);
-      }
-      if(kovan_warn){
-        console.log('\x1b[33m',kovan_warn);
-      }
       console.log('\x1b[33m',"Install cannot be stopped once setting are confirmed.");
       console.log('\x1b[33m',"#################################### WARNING ################################",'\n');
 
@@ -94,7 +48,7 @@ module.exports ={
         });
 
         if(response.response == 'y' || response.response == 'yes'){
-                console.log('\x1b[35m', "Installing node to "+node_config.network.id+"...");
+                console.log('\x1b[35m', "Installing node to "+overlay_config.environment+"...");
                 console.log('\x1b[35m', "This may take awhile...");
 
                 exec(install);

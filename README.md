@@ -1,12 +1,17 @@
-# Cosmic_Overlay V2 BETA  -- Warp testnet Supported
+# Cosmic_Overlay V2 Testnet Release
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-The Cosmic Overlay is a general purpose tool used to streamline the interaction between an OriginTrail node. The overlay is compatible with both V4 single chain and V5 multichain nodes.  <b>Only development environment available for BETA</b>
+The Cosmic Overlay is a general purpose tool used to streamline the interaction between an OriginTrail node. The overlay is compatible with both V4 single chain and V5 multichain nodes.  <b>Supports V5 Testnet and Mainnet</b>
 <br><br>
-Before running the overlay, please read and follow the requirements and configration sections.
+Before running the overlay, please read and follow the requirements and configuration sections.
 <br>
 <br>
-<b>To Start Run:</b> sudo node start_overlay.js
+<b>To Start Run:</b>
+<ol>
+<li>cd Cosmic_OverlayV2</li>
+<li>sudo node start_overlay.js</li>
+</ol>
 <br><br>
+This project independently maintained and is not affiliated with TraceLabs or OriginTrail.<br>
 Donations are always welcome. Thank you! <br>
 Ethereum: 0x514a264512EB9297aAB63e79b000E0bd26EE0734<br>
 
@@ -23,7 +28,7 @@ Install nodejs, npm, jq, curl, docker, and zip
 </ul><br>
 
 <b>Required for automated scripts:</b><br>
-Telegram bot token : https://www.siteguarding.com/en/how-to-get-telegram-bot-api-token <br>
+Telegram bot token : add @botfather on telegram. Follow the instructions to create your own chat bot.<br>
 Telegram chat ID: add @getidsbot to telegram. Type /start. It will tell you your chat ID.<br>
 
 <b>Required for installing a new node:</b><br>
@@ -37,7 +42,7 @@ Operational wallet must have the following funds for EACH blockchain they are ut
   </ul>
 <br>
 <b>Required for aws s3 features:</b><br>
-Create an https://aws.amazon.com/s3/ account and create a new api access key and secret if you want to configure the overlay to interact with aws s3 storage. 
+Create an https://aws.amazon.com/s3/ account and create a new api access key and secret if you want to configure the overlay to interact with aws s3 storage.
 <br><br>
 <b>Always</b> check your arangodb and compare the arangodb size of a new backup to an old backup before deleting the old backup.<br><br>
 <b>Never</b> delete your backups on aws until you have successfully uploaded a back up from your migrated node AND the arandoDB sizes match.<br><br>
@@ -55,7 +60,7 @@ Create an https://aws.amazon.com/s3/ account and create a new api access key and
 <b>Configuring your node</b>
 <ol>
 <li>Run: cd Cosmic_OverlayV2/configurations</li>
-<li>Rename the example-node_config.json file in this directory to node_config.json. Replace the ** content with your information<br>
+<li>Rename the example-node_config.json (or tstexample-node_config.json for testnet) file in this directory to node_config.json. Replace the ** content with your information<br>
   Note: This configuration should match the .origintrail_noderc file of your actual node. It is required to fill this configuration out for the overlay to function. You cannot change the default directories at this time.
 </li>
 </ol>
@@ -137,5 +142,3 @@ Place the following in your crontab and make sure the path to the scripts are co
 0 0 1 * * root cd /path/to/Cosmic_Overlay2/scripts/OTLogArchiving && sudo node archive.js<br>
 0 0 * * 0 root cd /path/to/Cosmic_Overlay2/scripts/OTUpload && sudo node upload.js<br>
 ***** root cd /path/to/Cosmic_Overlay2/scripts/OTHeartbeat && sudo node ping.js
-
-

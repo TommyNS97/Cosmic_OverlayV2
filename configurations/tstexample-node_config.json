@@ -8,22 +8,22 @@
     	"implementations": [
         	{
             	"blockchain_title": "Ethereum",
-            	"network_id": "ethr:mainnet",
+            	"network_id": "ethr:rinkeby:1",
             	"rpc_server_url": "url to your RPC server i.e. Infura or own Geth server",
             	"node_wallet": "your ethereum wallet address here",
             	"node_private_key": "your ethereum wallet's private key here",
             	"management_wallet": "your ethereum management wallet public key here",
-              "dh_price_factor" : "2",
+              "dh_price_factor" : "your price factor here",
               "disable_auto_payouts" : "false"
         	},
         	{
-            	"blockchain_title": "xDai",
-            	"network_id": "xdai:mainnet",
-            	"rpc_server_url": "https://xdai.poanetwork.dev",
+            	"blockchain_title": "Ethereum",
+            	"network_id": "ethr:rinkeby:2",
+            	"rpc_server_url": "url to your RPC server i.e. Infura or own Geth",
             	"node_wallet": "your ethereum wallet address here",
             	"node_private_key": "your ethereum wallet's private key here",
             	"management_wallet": "your ethereum management wallet public key here",
-              "dh_price_factor" : "2",
+              "dh_price_factor" : "your price factor here",
               "disable_auto_payouts" : "false"
         	}
     	]
