@@ -37,7 +37,6 @@ Operational wallet must have the following funds for EACH blockchain they are ut
   <li>Starfleet Backchain: 3k sTRAC and enough sTRAC to pay for 2 blockchain transactions</li>
   <li>xDai Backchain: 3k xTRAC and enough xDai to pay for 2 blockchain transactions</li>
   <li>Rinkeby Backchain: 3k aTRAC and enough rinkeby ETH to pay for 2 blockchain transactions</li>
-  <li>Kovan Backchain: 3k tTRAC and enough kovan ETH to pay for 2 blockchain transactions</li>
   </ul>
 <br>
 <b>Required for aws s3 features:</b><br>
