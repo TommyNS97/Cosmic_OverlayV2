@@ -1,6 +1,6 @@
 # Cosmic_Overlay V2 Testnet Release
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-The Cosmic Overlay is a general purpose tool used to streamline the interaction between an OriginTrail node. The overlay is compatible with both V4 single chain and V5 multichain nodes.  <b>Supports V5 Testnet and Mainnet</b>
+The Cosmic Overlay is a general purpose tool used to streamline the interaction between an OriginTrail node. The overlay assumes your container and node configuration are the defaults established by Trace Labs.  <b>Supports V5 Testnet and Mainnet</b>
 <br><br>
 Before running the overlay, please read and follow the requirements and configuration sections.
 <br>
