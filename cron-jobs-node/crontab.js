@@ -34,15 +34,6 @@ cron.schedule(config.scripts.log_archiving.frequency,function(){
   }
 })
 
-cron.schedule(config.scripts.auto_system_updates.frequency,function(){
-  if(config.scripts.auto_system_updates.enabled == "true"){
-    var command = "cd ../scripts/OTSysUpdate && sudo node update.js";
-    if(shell.exec(command).code !== 0){
-      console.log("Something went wrong");
-    }
-  }
-})
-
 cron.schedule(config.scripts.aws_backup.frequency,function(){
   if(config.scripts.aws_backup.enabled == "true"){
     var command = "cd ../scripts/OTUpload && sudo node upload.js";
