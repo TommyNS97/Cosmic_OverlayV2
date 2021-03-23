@@ -126,9 +126,6 @@ module.exports ={
           if(mv_rnk){
             await exec(mv_rnk);
           }
-          if(mv_kov){
-            await exec(mv_kov);
-          }
 
           console.log('\x1b[32m',"Otnode image has been installed.",'\n');
           var copyscript = "sudo mkdir -p /root/OTRestore && sudo docker cp otnode:/ot-node/current/scripts/restore.sh /root/OTRestore"
