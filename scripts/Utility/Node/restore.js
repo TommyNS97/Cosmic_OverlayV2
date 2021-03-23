@@ -25,8 +25,8 @@ module.exports ={
       rinkeby_warn = ''
       mv_rnk = ''
 
-      kovan_warn = ''
-      mv_kov = ''
+      rinkeby2_warn = ''
+      mv_rnk2 = ''
 
       const implementations = node_config.blockchain.implementations;
       var chain_count  = Object.keys(implementations).length;
