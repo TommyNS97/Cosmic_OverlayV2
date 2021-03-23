@@ -19,7 +19,6 @@
         	{
             	"blockchain_title": "xDai",
             	"network_id": "xdai:mainnet",
-            	"rpc_server_url": "https://xdai.poanetwork.dev",
             	"node_wallet": "your ethereum wallet address here",
             	"node_private_key": "your ethereum wallet's private key here",
             	"management_wallet": "your ethereum management wallet public key here",
