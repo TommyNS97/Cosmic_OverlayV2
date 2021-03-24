@@ -29,7 +29,7 @@ Install nodejs, npm, jq, curl, docker, and zip
 
 <b>Required for automated scripts:</b><br>
 Telegram bot token : add @botfather on telegram. Follow the instructions to create your own chat bot.<br>
-Telegram chat ID: add @getidsbot to telegram. Type /start. It will tell you your chat ID.<br>
+Telegram chat ID: add @myidbot to telegram. Type /start. It will tell you your chat ID.<br>
 
 <b>Required for installing a new node:</b><br>
 Operational wallet must have the following funds for EACH blockchain they are utilizing on their node:
