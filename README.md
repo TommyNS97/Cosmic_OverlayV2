@@ -67,7 +67,7 @@ Create an https://aws.amazon.com/s3/ account and create a new api access key and
 <b>Configuring your overlay</b>
 <ol>
 <li>Run: cd Cosmic_OverlayV2/configurations</li>
-<li>Rename the example-overlay_config.json file in this directory to overlay_config.json. Replace the ** content with your information<br>
+<li>Rename the example-overlay_config.json file in this directory to overlay_config.json. Replace the ** content with your information. Make sure to change the environment to mainnet if you want to run on mainnet.<br>
   Note: It is required to fill this configuration out for the overlay to function. Misconfiguration could cause some features to fail.
 </li>
 </ol>
