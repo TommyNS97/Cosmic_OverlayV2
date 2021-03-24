@@ -30,7 +30,7 @@
               "enabled" : "true",
               "telegram_bot_token" : "*telegram bot token here*",
               "searchfor" : "'Unhandled Rejection'",
-              "since" : "20m",
+              "since" : "5m",
               "header" : "Unhandled Rejection"
 
             },
