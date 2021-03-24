@@ -24,6 +24,7 @@ Install nodejs, npm, jq, curl, docker, and zip
 <li>Run: sudo apt install curl -y</li>
 <li>Run: sudo apt install docker.io -y</li>
 <li>Run: sudo apt-get install zip unzip -y</li>
+<li>Run: sudo apt-get install git -y</li>
 </ul><br>
 
 <b>Required for automated scripts:</b><br>
