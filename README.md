@@ -82,7 +82,8 @@ Create an https://aws.amazon.com/s3/ account and create a new api access key and
 <li>Run: cd ..</li>
 </ol>
 
-<b>----------------------------------------------------------------Features:------------------------------------------------------------------</b><br>
+<b>----------------------------------------------------------------Features:------------------------------------------------------------------</b><br><br>
+<a href="https://ibb.co/p29syCD"><img src="https://i.ibb.co/rk1LsnP/IMG-20210325-090642-421.jpg" alt="IMG-20210325-090642-421" border="0"/></a><br><br>
 <b>Install Menu:</b>
 <ol>
 <li>Install a brand new node based off of the configuration in the overlay config. <br>
