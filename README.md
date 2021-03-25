@@ -34,10 +34,10 @@ Telegram chat ID: add @myidbot to telegram. Type /start. It will tell you your c
 <b>Required for installing a new node:</b><br>
 Operational wallet must have the following funds for EACH blockchain they are utilizing on their node:
   <ul>
-  <li>Ethereum Backchain: 3k TRAC and enough ETH to pay for 2 blockchain transactions</li>
-  <li>Starfleet Backchain: 3k sTRAC and enough sTRAC to pay for 2 blockchain transactions</li>
-  <li>xDai Backchain: 3k xTRAC and enough xDai to pay for 2 blockchain transactions</li>
-  <li>Rinkeby Backchain: 3k aTRAC and enough rinkeby ETH to pay for 2 blockchain transactions</li>
+  <li>Ethereum Blockchain: 3k TRAC and enough ETH to pay for 2 blockchain transactions</li>
+  <li>Starfleet Blockchain: 3k sTRAC and enough sTRAC to pay for 2 blockchain transactions</li>
+  <li>xDai Blockchain: 3k xTRAC and enough xDai to pay for 2 blockchain transactions</li>
+  <li>Rinkeby Blockchain: 3k aTRAC and enough rinkeby ETH to pay for 2 blockchain transactions on <b>2</b> different operational wallets</li>
   </ul>
 <br>
 <b>Required for aws s3 features:</b><br>
@@ -137,7 +137,7 @@ The overlay config will still be used for notifications if you decide to go with
 
 Place the following in your crontab and make sure the path to the scripts are correct:<br>
 
-*/5 * * * * root cd /path/to/Cosmic_Overlay2/scripts/OTLogNotifications && sudo node Notification.js<br>
-0 0 1 * * root cd /path/to/Cosmic_Overlay2/scripts/OTLogArchiving && sudo node archive.js<br>
-0 0 * * 0 root cd /path/to/Cosmic_Overlay2/scripts/OTUpload && sudo node upload.js<br>
-***** root cd /path/to/Cosmic_Overlay2/scripts/OTHeartbeat && sudo node ping.js
+*/5 * * * * root cd /path/to/Cosmic_OverlayV2/scripts/OTLogNotifications && sudo node Notification.js<br>
+0 0 1 * * root cd /path/to/Cosmic_OverlayV2/scripts/OTLogArchiving && sudo node archive.js<br>
+0 0 * * 0 root cd /path/to/Cosmic_OverlayV2/scripts/OTUpload && sudo node upload.js<br>
+***** root cd /path/to/Cosmic_OverlayV2/scripts/OTHeartbeat && sudo node ping.js
