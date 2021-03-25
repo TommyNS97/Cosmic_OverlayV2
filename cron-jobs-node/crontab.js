@@ -3,22 +3,22 @@ const express = require('express');
 const shell = require('shelljs');
 const config = require('../configurations/overlay_config.json');
 
-//config.scripts.status_check.frequency
-cron.schedule(config.scripts.heartbeat.frequency,function(){
-  if(config.scripts.heartbeat.enabled == "true"){
-    var command = "cd ../scripts/OTHeartbeat && sudo node ping.js";
-    console.log("Heartbeat");
+//config.scripts.log_notifications.frequency
+cron.schedule(config.scripts.log_notifications.frequency,function(){
+  if(config.scripts.log_notifications.enabled == "true"){
+    var command = "cd ../scripts/OTLogNotifications && sudo node Notification.js";
+    console.log("notification");
     if(shell.exec(command).code !== 0){
       console.log("Something went wrong");
     }
   }
 })
 
-//config.scripts.log_notifications.frequency
-cron.schedule(config.scripts.log_notifications.frequency,function(){
-  if(config.scripts.log_notifications.enabled == "true"){
-    var command = "cd ../scripts/OTLogNotifications && sudo node Notification.js";
-    console.log("notification");
+//config.scripts.status_check.frequency
+cron.schedule(config.scripts.heartbeat.frequency,function(){
+  if(config.scripts.heartbeat.enabled == "true"){
+    var command = "cd ../scripts/OTHeartbeat && sudo node ping.js";
+    console.log("Heartbeat");
     if(shell.exec(command).code !== 0){
       console.log("Something went wrong");
     }
