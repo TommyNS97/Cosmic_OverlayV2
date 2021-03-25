@@ -1,5 +1,32 @@
 {
+  "name": "cosmic_overlayv2",
+  "version": "1.0.0",
+  "description": "------------------------------------------------------------------------------------------------------------------------------------------------------------------ The Cosmic Overlay is a general purpose tool used to streamline the interaction between an OriginTrail node. The overlay assumes your container and node configuration are the defaults established by Trace Labs.  <b>Supports V5 Testnet and Mainnet</b> <br><br> Before running the overlay, please read and follow the requirements and configuration sections. <br> <br> <b>To Start Run:</b> <ol> <li>cd Cosmic_OverlayV2</li> <li>sudo node start_overlay.js</li> </ol> This project is independently maintained and is not affiliated with TraceLabs or OriginTrail.<br> Donations are always welcome. Thank you! <br> Ethereum/xDAi: 0x514a264512EB9297aAB63e79b000E0bd26EE0734<br>",
+  "main": "start_overlay.js",
   "dependencies": {
-    "moment": "^2.29.1"
-  }
+    "dateformat": "^4.0.0",
+    "ethereum-address": "^0.0.4",
+    "etherscan-api": "^10.0.5",
+    "express": "^4.17.1",
+    "install": "^0.13.0",
+    "messaging-api-telegram": "^1.0.1",
+    "moment": "^2.29.1",
+    "node-cron": "^2.0.3",
+    "os": "^0.1.1",
+    "prompts": "^2.4.0",
+    "shelljs": "^0.8.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TommyNS97/Cosmic_OverlayV2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TommyNS97/Cosmic_OverlayV2/issues"
+  },
+  "homepage": "https://github.com/TommyNS97/Cosmic_OverlayV2#readme"
 }
