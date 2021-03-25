@@ -227,7 +227,7 @@ try{
             if(aws_backup == 'true'){
               console.log('\x1b[35m', "Automated AWS Backups: ",'\x1b[32m', "             [Enabled]");
             }else{
-              console.log('\x1b[35m', "Automated AWS Backups: ",'\x1b[31m', "             [Disabled]");
+              console.log('\x1b[35m', "Automated AWS Backups: ",'\x1b[31m', "             [Disabled]",'\n');
             }
 
             console.log('\x1b[35m', "[1] - Start maintenance scripts");
