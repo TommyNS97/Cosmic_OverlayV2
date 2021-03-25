@@ -10,7 +10,7 @@ Before running the overlay, please read and follow the requirements and configur
 <li>cd Cosmic_OverlayV2</li>
 <li>sudo node start_overlay.js</li>
 </ol>
-This project independently maintained and is not affiliated with TraceLabs or OriginTrail.<br>
+This project is independently maintained and is not affiliated with TraceLabs or OriginTrail.<br>
 Donations are always welcome. Thank you! <br>
 Ethereum/xDAi: 0x514a264512EB9297aAB63e79b000E0bd26EE0734<br>
 
