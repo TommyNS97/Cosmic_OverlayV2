@@ -5,7 +5,7 @@ module.exports ={
   formatStdout: function formatStdout(stdout, dateTimeFormat, simple){
     
     var lineCount = (stdout.match(/[\r\n]/g)||[]).length;
-    var dateTime = stdout.split("-")[0];
+    var dateTime = stdout.split(" - ")[0];
     var dateTime = dateTime.substring(0, dateTime.length);
 
     if (dateTimeFormat !== "") {
@@ -24,7 +24,7 @@ module.exports ={
 
             console.log(simpleStdout);
 
-            return dateTime + ' - ' + simpleStdout.match(/([^-]*),(.*)/);
+            return dateTime + ' - ' + simpleStdout.split(" - ", 1)[1];
         } else {
 
             return dateTime + ' - ' + stdout.match(/([^-]*),(.*)/);
