@@ -10,6 +10,7 @@ module.exports ={
 
     if (dateTimeFormat !== "") {
 
+        console.log(dateTime)
         console.log(dateTimeFormat);
         console.log(stdout);
 
@@ -20,6 +21,8 @@ module.exports ={
 
         if (simple == "true") {
             var simpleStdout = stdout.replace(/\b\w{66}\b/g, "");
+
+            console.log(simpleStdout);
 
             return dateTime + ' - ' + simpleStdout.match(/([^-]*),(.*)/);
         } else {
