@@ -20,8 +20,8 @@ async function notification(){
         const searchfor = obj.searchfor
         const since = obj.since
         const header = obj.header
-        const dateTimeFormat = obj.format !== "" ? obj.format.dateTimeFormat : "";
-        const simple = obj.format !== "" ? obj.format.simple : "false";
+        const dateTimeFormat = obj.format && obj.format !== "" ? obj.format.dateTimeFormat : "";
+        const simple = obj.format && obj.format !== "" ? obj.format.simple : "false";
 
         const token = obj.telegram_bot_token;
         const client = new TelegramClient({
