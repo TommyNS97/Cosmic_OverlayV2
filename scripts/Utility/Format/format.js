@@ -22,7 +22,7 @@ module.exports ={
         if (simple == "true") {
             var simpleStdout = stdout.replace(/\b\w{66}\b/g, "");
 
-            console.log(simpleStdout);
+            console.log(simpleStdout.split(" - ", 1));
 
             return dateTime + ' - ' + simpleStdout.split(" - ", 1)[1];
         } else {
