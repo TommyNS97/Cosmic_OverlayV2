@@ -10,6 +10,9 @@ module.exports ={
 
     if (dateTimeFormat !== "") {
 
+        console.log(dateTimeFormat);
+        console.log(stdout);
+
         dateTime = moment(dateTime, dateTimeFormat).toString();
     }
 
@@ -18,10 +21,10 @@ module.exports ={
         if (simple == "true") {
             var simpleStdout = stdout.replace(/\b\w{66}\b/g, "");
 
-            return dateTime + ' -' + simpleStdout.match(/([^-]*),(.*)/);
+            return dateTime + ' - ' + simpleStdout.match(/([^-]*),(.*)/);
         } else {
 
-            return dateTime + ' -' + stdout.match(/([^-]*),(.*)/);
+            return dateTime + ' - ' + stdout.match(/([^-]*),(.*)/);
         }
     } else if (lineCount > 1) {
 
