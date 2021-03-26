@@ -22,9 +22,8 @@ module.exports ={
         if (simple == "true") {
             var simpleStdout = stdout.replace(/\b\w{66}\b/g, "");
 
-            console.log(simpleStdout.split(" - ", 2));
 
-            return dateTime + ' - ' + simpleStdout.split(" - ", 2)[1];
+            return dateTime + ' - ' + simpleStdout.split(/\s-\s(.+)/)[1]
         } else {
 
             return dateTime + ' - ' + stdout.match(/([^-]*),(.*)/);
