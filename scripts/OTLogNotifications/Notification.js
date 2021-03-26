@@ -2,7 +2,7 @@ const { TelegramClient } = require('messaging-api-telegram');
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 const config = require('../../configurations/overlay_config.json');
-const format = require('./Utility/Format/format.js');
+const format = require('../Utility/Format/format.js');
 
 const node_name = config.scripts.node_name;
 const notifications = config.scripts.log_notifications.notifications;
