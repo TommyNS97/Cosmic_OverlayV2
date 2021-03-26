@@ -13,7 +13,7 @@ module.exports ={
         console.log(dateTimeFormat);
         console.log(stdout);
 
-        dateTime = moment(dateTime, dateTimeFormat).toString();
+        dateTime = moment(dateTime).format(dateTimeFormat).toString();
     }
 
     if (lineCount == 1) {
